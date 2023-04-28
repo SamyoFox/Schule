@@ -16,8 +16,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Multiplayer {
 
-    public static boolean enemyAnswered = false;
-    public static int enemyAnswer = 0;
+    public static volatile boolean enemyAnswered = false;
+    public static volatile int enemyAnswer = 0;
     public static Socket client = null;
 
     public static void playMultiplayerServer() throws Exception {
@@ -38,7 +38,7 @@ public class Multiplayer {
             System.out.println(String.format("Runde %s von %s, wähle ein Objekt aus", gespielteRunden+1, runden+1));
             System.out.println("Warte auf Gegner...");
             Server server = new Server();
-            new Thread(server).run();
+            new Thread(server).start();
             System.out.println("Schere - 1");
             System.out.println("Stein - 2");
             System.out.println("Papier - 3");
