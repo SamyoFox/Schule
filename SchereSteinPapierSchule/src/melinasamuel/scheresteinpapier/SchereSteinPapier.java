@@ -57,7 +57,7 @@ public class SchereSteinPapier {
         int gewonnenComputer = 0;
         System.out.println("Normaler Modus");
         while(gespielteRunden <= runden){
-            System.out.println(String.format("Runde %s von %s, wähle ein Objekt aus", gespielteRunden+1, runden+1));
+            System.out.printf("Runde %s von %s, wähle ein Objekt aus%n", gespielteRunden+1, runden+1);
             System.out.println("Schere - 1");
             System.out.println("Stein - 2");
             System.out.println("Papier - 3");
@@ -99,7 +99,7 @@ public class SchereSteinPapier {
                     gegnerObjekt = new Papier();
                     break;
             }
-            System.out.println(String.format("Spielerobjekt: %s | Gegnerobjekt: %s", spielerObjekt.toString(), gegnerObjekt.toString()));
+            System.out.printf("Spielerobjekt: %s | Gegnerobjekt: %s%n", spielerObjekt.toString(), gegnerObjekt.toString());
             if ((spielerObjekt instanceof Schere && gegnerObjekt instanceof Stein) || (spielerObjekt instanceof Stein && gegnerObjekt instanceof Papier) || (spielerObjekt instanceof Papier && gegnerObjekt instanceof Schere)){
                 System.out.println("Der Computer hat die Runde gewonnen!");
                 gewonnenComputer++;
@@ -129,7 +129,7 @@ public class SchereSteinPapier {
         int gewonnenComputer = 0;
         System.out.println("Unmöglicher Modus");
         while(gespielteRunden <= runden){
-            System.out.println(String.format("Runde %s von %s, wähle ein Objekt aus", gespielteRunden+1, runden+1));
+            System.out.printf("Runde %s von %s, wähle ein Objekt aus%n", gespielteRunden+1, runden+1);
             System.out.println("Schere - 1");
             System.out.println("Stein - 2");
             System.out.println("Papier - 3");
@@ -162,7 +162,7 @@ public class SchereSteinPapier {
             } else if (spielerObjekt instanceof Papier){
                 gegnerObjekt = new Schere();
             }
-            System.out.println(String.format("Spielerobjekt: %s | Gegnerobjekt: %s", spielerObjekt.toString(), gegnerObjekt.toString()));
+            System.out.printf("Spielerobjekt: %s | Gegnerobjekt: %s%n", spielerObjekt.toString(), gegnerObjekt.toString());
             if ((spielerObjekt instanceof Schere && gegnerObjekt instanceof Stein) || (spielerObjekt instanceof Stein && gegnerObjekt instanceof Papier) || (spielerObjekt instanceof Papier && gegnerObjekt instanceof Schere)){
                 System.out.println("Der Computer hat die Runde gewonnen!");
                 gewonnenComputer++;

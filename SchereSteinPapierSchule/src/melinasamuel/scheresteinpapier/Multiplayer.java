@@ -22,7 +22,7 @@ public class Multiplayer {
 
     public static void playMultiplayerServer() throws Exception {
         ServerSocket socket = new ServerSocket(6210);
-        System.out.println(String.format("Server ist nun erreichbar unter der IP %s", Inet4Address.getLocalHost().getHostAddress()));
+        System.out.printf("Server ist nun erreichbar unter der IP %s%n", Inet4Address.getLocalHost().getHostAddress());
         System.out.println("Warte auf Verbindung des Gegenübers...");
         client = socket.accept();
         System.out.println("Gegenüber verbunden");
@@ -35,7 +35,7 @@ public class Multiplayer {
         System.out.println("Normaler Modus");
         while(gespielteRunden <= runden){
             out.println(gespielteRunden + ";" + runden + ";" + gewonnenSpieler + ";" + gewonnenComputer);
-            System.out.println(String.format("Runde %s von %s, wähle ein Objekt aus", gespielteRunden+1, runden+1));
+            System.out.printf("Runde %s von %s, wähle ein Objekt aus%n", gespielteRunden+1, runden+1);
             System.out.println("Warte auf Gegner...");
             Server server = new Server();
             new Thread(server).start();
@@ -86,7 +86,7 @@ public class Multiplayer {
                     gegnerObjekt = new Papier();
                     break;
             }
-            System.out.println(String.format("Spielerobjekt: %s | Gegnerobjekt: %s", spielerObjekt.toString(), gegnerObjekt.toString()));
+            System.out.printf("Spielerobjekt: %s | Gegnerobjekt: %s%n", spielerObjekt.toString(), gegnerObjekt.toString());
             if ((spielerObjekt instanceof Schere && gegnerObjekt instanceof Stein) || (spielerObjekt instanceof Stein && gegnerObjekt instanceof Papier) || (spielerObjekt instanceof Papier && gegnerObjekt instanceof Schere)){
                 System.out.println("Der Gegner hat die Runde gewonnen!");
                 out.println(1);
@@ -129,7 +129,7 @@ public class Multiplayer {
             runden = Integer.parseInt(roundInfoArray[1]);
             //gewonnenSpieler = Integer.parseInt(roundInfoArray[2]);
             //gewonnenComputer = Integer.parseInt(roundInfoArray[3]);
-            System.out.println(String.format("Runde %s von %s, wähle ein Objekt aus", gespielteRunden + 1, runden + 1));
+            System.out.printf("Runde %s von %s, wähle ein Objekt aus%n", gespielteRunden + 1, runden + 1);
             System.out.println("Schere - 1");
             System.out.println("Stein - 2");
             System.out.println("Papier - 3");
@@ -184,7 +184,7 @@ public class Multiplayer {
                     gegnerObjekt = new Papier();
                     break;
             }
-            System.out.println(String.format("Spielerobjekt: %s | Gegnerobjekt: %s", spielerObjekt.toString(), gegnerObjekt.toString()));
+            System.out.printf("Spielerobjekt: %s | Gegnerobjekt: %s%n", spielerObjekt.toString(), gegnerObjekt.toString());
             int won = Integer.parseInt(in.readLine());
             switch (won) {
                 case 1:
